@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		550830DB1D89CD7700AC374B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550830DA1D89CD7700AC374B /* main.cpp */; };
+		550831D01D8B006600AC374B /* Card.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831CE1D8B006600AC374B /* Card.cpp */; };
+		550831D31D8B010200AC374B /* MPErrors.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831D11D8B010200AC374B /* MPErrors.cpp */; };
+		550831D61D8B038700AC374B /* Deck.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831D41D8B038700AC374B /* Deck.cpp */; };
+		550831D91D8B047100AC374B /* PlayBlackJack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831D71D8B047100AC374B /* PlayBlackJack.cpp */; };
+		550831DC1D8B06C600AC374B /* RandomGenerators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831DA1D8B06C600AC374B /* RandomGenerators.cpp */; };
+		550831E01D8B105A00AC374B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831DF1D8B105A00AC374B /* main.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +29,17 @@
 
 /* Begin PBXFileReference section */
 		550830D71D89CD7700AC374B /* BlackJack */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BlackJack; sourceTree = BUILT_PRODUCTS_DIR; };
-		550830DA1D89CD7700AC374B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		550831CE1D8B006600AC374B /* Card.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Card.cpp; sourceTree = "<group>"; };
+		550831CF1D8B006600AC374B /* Card.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Card.hpp; sourceTree = "<group>"; };
+		550831D11D8B010200AC374B /* MPErrors.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPErrors.cpp; path = ../MPErrors.cpp; sourceTree = "<group>"; };
+		550831D21D8B010200AC374B /* MPErrors.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = MPErrors.hpp; path = ../MPErrors.hpp; sourceTree = "<group>"; };
+		550831D41D8B038700AC374B /* Deck.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Deck.cpp; sourceTree = "<group>"; };
+		550831D51D8B038700AC374B /* Deck.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Deck.hpp; sourceTree = "<group>"; };
+		550831D71D8B047100AC374B /* PlayBlackJack.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = PlayBlackJack.cpp; sourceTree = "<group>"; };
+		550831D81D8B047100AC374B /* PlayBlackJack.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = PlayBlackJack.hpp; sourceTree = "<group>"; };
+		550831DA1D8B06C600AC374B /* RandomGenerators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerators.cpp; sourceTree = "<group>"; };
+		550831DB1D8B06C600AC374B /* RandomGenerators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RandomGenerators.hpp; sourceTree = "<group>"; };
+		550831DF1D8B105A00AC374B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +72,17 @@
 		550830D91D89CD7700AC374B /* BlackJack */ = {
 			isa = PBXGroup;
 			children = (
-				550830DA1D89CD7700AC374B /* main.cpp */,
+				550831DF1D8B105A00AC374B /* main.cpp */,
+				550831D71D8B047100AC374B /* PlayBlackJack.cpp */,
+				550831D81D8B047100AC374B /* PlayBlackJack.hpp */,
+				550831CE1D8B006600AC374B /* Card.cpp */,
+				550831CF1D8B006600AC374B /* Card.hpp */,
+				550831D41D8B038700AC374B /* Deck.cpp */,
+				550831D51D8B038700AC374B /* Deck.hpp */,
+				550831D21D8B010200AC374B /* MPErrors.hpp */,
+				550831D11D8B010200AC374B /* MPErrors.cpp */,
+				550831DA1D8B06C600AC374B /* RandomGenerators.cpp */,
+				550831DB1D8B06C600AC374B /* RandomGenerators.hpp */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -118,7 +143,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				550830DB1D89CD7700AC374B /* main.cpp in Sources */,
+				550831D61D8B038700AC374B /* Deck.cpp in Sources */,
+				550831D91D8B047100AC374B /* PlayBlackJack.cpp in Sources */,
+				550831E01D8B105A00AC374B /* main.cpp in Sources */,
+				550831D01D8B006600AC374B /* Card.cpp in Sources */,
+				550831DC1D8B06C600AC374B /* RandomGenerators.cpp in Sources */,
+				550831D31D8B010200AC374B /* MPErrors.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
