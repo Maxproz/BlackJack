@@ -51,5 +51,6 @@ std::ostream& operator<<(std::ostream& os, const Suits& s);
 void printCard(const Card& card);
 int getCardValue(const Card& card);
 void swapCard(Card &a, Card &b);
+void printCard(const std::unique_ptr<Card> cp);
 
 #endif /* Card_hpp */

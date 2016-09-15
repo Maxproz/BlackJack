@@ -53,6 +53,11 @@ void printCard(const Card& card)
     std::cout << card.rank << card.suit << std::endl;
 }
 
+void printCard(const std::unique_ptr<Card> cp)
+{
+    std::cout << cp->rank << cp->suit << std::endl;
+}
+
 int getCardValue(const Card& card)
 {
     switch (card.rank)

@@ -17,21 +17,13 @@
 class Deck
 {
 private:
-    const unsigned short _decksize = 51; // 0-51
-    std::vector<Card> deck;
-private:
-    Deck()
-    {
-        for (int i = 0; i < _decksize; ++i)
-        {
-            Card card;
-            deck.push_back(card);
-        }
-    }
+    int _decksize = 51; // 0-51
+public:
+    std::vector<Card> cards;
 };
 
-void printDeck(const std::array<Card, 52>& deck);
-std::array<Card, 52> fillDeck();
-void shuffleDeck(std::array<Card,52>& d);
+void printDeck(const Deck& deck);
+std::vector<Card> fillDeckWithCards();
+void shuffleDeck(Deck& d);
 
 #endif /* Deck_hpp */

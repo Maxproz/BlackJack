@@ -8,37 +8,41 @@
 
 #include "Deck.hpp"
 
-
-
-void printDeck(const std::array<Card, 52>& deck)
+void printDeck(const Deck& deck)
 {
-    for (const auto& elem : deck)
+    for (const auto& elem : deck.cards)
     {
         std::cout << elem.rank << elem.suit << std::endl;
     }
 }
 
-std::array<Card, 52> fillDeck()
+std::vector<Card> fillDeckWithCards()
 {
-    std::array<Card, 52> deck;
+    Deck deck;
+    deck.cards.reserve(52);
+    for (int i = 0; i < 51; ++i)
+    {
+        Card card;
+        deck.cards.push_back(card);
+    }
     int card = 0;
     for (int suit = 0; suit < static_cast<int>(Suits::max_suits); ++suit)
     {
         for (int rank = 0; rank < static_cast<int>(Ranks::max_ranks); ++rank)
         {
-            deck[card].suit = static_cast<Suits>(suit);
-            deck[card].rank = static_cast<Ranks>(rank);
+            deck.cards[card].suit = static_cast<Suits>(suit);
+            deck.cards[card].rank = static_cast<Ranks>(rank);
             ++card;
         }
     }
-    return deck;
+    return deck.cards;
 }
 
-void shuffleDeck(std::array<Card,52>& d)
+void shuffleDeck(Deck& d)
 {
-    for (int i = 0; i < d.size(); ++i)
+    for (int i = 0; i < d.cards.size(); ++i)
     {
-        std::swap (d[i], d[randomMersenne()]);
-        d[i].shuffeled = true;
+        std::swap (d.cards[i], d.cards[randomMersenne()]);
+        d.cards[i].shuffeled = true;
     }
 }

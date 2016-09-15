@@ -41,7 +41,7 @@ void printWinner(const gameResult& result);
 
 void printDealersScore(const int& dealersScore);
 void printPlayersScore(const int& playersScore);
-gameResult playblackjack(std::array<Card,52> deck);
+gameResult playblackjack(Deck deck);
 
 // should have used, typedef std::array<Card,52> Deck;
 

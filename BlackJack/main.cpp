@@ -11,18 +11,30 @@
 #include "Deck.hpp"
 #include "Card.hpp"
 #include "PlayBlackJack.hpp"
+#include "UltTexasHoldem.hpp"
 #include "RandomGenerators.hpp"
+#include "Player.hpp"
+#include <boost/signals2.hpp>
 
 
 
-// blackjack gen (0,51)
+// blackjack random number generator for values - (0,51)
 boost::mt19937 gen;
+
+// signal to print the players chip and money count easily.
+// this signal has no arguments and has a void return value
+boost::signals2::signal<void(Player p)> chipAndMoneySig;
 
 int main()
 {
     // seed my random number generators.
     gen.seed(static_cast<unsigned int>(std::time(0)));
     
+    // connect my chip and money display functions to my signal.
+    chipAndMoneySig.connect(&displayPlayerMoneyCount);
+    chipAndMoneySig.connect(&displayPlayerChipCount);
+    
+    Player newPlayer;
     
     bool playing_games = true;
     while (playing_games)
@@ -48,8 +60,8 @@ int main()
             {
                 // Preping for a game of blackjack.
                 // TODO: Probably can clean this out when I mess with classes again.
-                std::array<Card, 52> deck;
-                deck = fillDeck();
+                Deck deck;
+                deck.cards = fillDeckWithCards();
                 shuffleDeck(deck);
                 gameResult result = gameResult::IN_PROGRESS;
                 result = playblackjack(deck);
@@ -58,7 +70,14 @@ int main()
             }
             case 2:
             {
+                chipAndMoneySig(newPlayer);
+                std::cout << "How much do money do you want to exchange for chips to play Ultimate Texas Holem?\n";
+                int amount;
+                std::cin >> amount;
+                if (amount > 0 && amount < newPlayer.currentMoney())
+                    moneyForChips(newPlayer, amount);
                 
+                playUltimateTexasHoldem(newPlayer);
             }
             case 3:
             {

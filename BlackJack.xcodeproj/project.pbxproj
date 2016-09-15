@@ -13,6 +13,8 @@
 		550831D91D8B047100AC374B /* PlayBlackJack.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831D71D8B047100AC374B /* PlayBlackJack.cpp */; };
 		550831DC1D8B06C600AC374B /* RandomGenerators.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831DA1D8B06C600AC374B /* RandomGenerators.cpp */; };
 		550831E01D8B105A00AC374B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831DF1D8B105A00AC374B /* main.cpp */; };
+		550831E31D8B29AC00AC374B /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831E11D8B29AC00AC374B /* Player.cpp */; };
+		550831E61D8B29BC00AC374B /* UltTexasHoldem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 550831E41D8B29BC00AC374B /* UltTexasHoldem.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -40,6 +42,10 @@
 		550831DA1D8B06C600AC374B /* RandomGenerators.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = RandomGenerators.cpp; sourceTree = "<group>"; };
 		550831DB1D8B06C600AC374B /* RandomGenerators.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = RandomGenerators.hpp; sourceTree = "<group>"; };
 		550831DF1D8B105A00AC374B /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		550831E11D8B29AC00AC374B /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		550831E21D8B29AC00AC374B /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		550831E41D8B29BC00AC374B /* UltTexasHoldem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UltTexasHoldem.cpp; sourceTree = "<group>"; };
+		550831E51D8B29BC00AC374B /* UltTexasHoldem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = UltTexasHoldem.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +81,8 @@
 				550831DF1D8B105A00AC374B /* main.cpp */,
 				550831D71D8B047100AC374B /* PlayBlackJack.cpp */,
 				550831D81D8B047100AC374B /* PlayBlackJack.hpp */,
+				550831E41D8B29BC00AC374B /* UltTexasHoldem.cpp */,
+				550831E51D8B29BC00AC374B /* UltTexasHoldem.hpp */,
 				550831CE1D8B006600AC374B /* Card.cpp */,
 				550831CF1D8B006600AC374B /* Card.hpp */,
 				550831D41D8B038700AC374B /* Deck.cpp */,
@@ -83,6 +91,8 @@
 				550831D11D8B010200AC374B /* MPErrors.cpp */,
 				550831DA1D8B06C600AC374B /* RandomGenerators.cpp */,
 				550831DB1D8B06C600AC374B /* RandomGenerators.hpp */,
+				550831E11D8B29AC00AC374B /* Player.cpp */,
+				550831E21D8B29AC00AC374B /* Player.hpp */,
 			);
 			path = BlackJack;
 			sourceTree = "<group>";
@@ -144,10 +154,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				550831D61D8B038700AC374B /* Deck.cpp in Sources */,
+				550831E31D8B29AC00AC374B /* Player.cpp in Sources */,
 				550831D91D8B047100AC374B /* PlayBlackJack.cpp in Sources */,
 				550831E01D8B105A00AC374B /* main.cpp in Sources */,
 				550831D01D8B006600AC374B /* Card.cpp in Sources */,
 				550831DC1D8B06C600AC374B /* RandomGenerators.cpp in Sources */,
+				550831E61D8B29BC00AC374B /* UltTexasHoldem.cpp in Sources */,
 				550831D31D8B010200AC374B /* MPErrors.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
