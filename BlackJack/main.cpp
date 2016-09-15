@@ -30,7 +30,7 @@ int main()
     // seed my random number generators.
     gen.seed(static_cast<unsigned int>(std::time(0)));
     
-    // connect my chip and money display functions to my signal.
+    // connect my chip and money display functions to my boost::signal2.
     chipAndMoneySig.connect(&displayPlayerMoneyCount);
     chipAndMoneySig.connect(&displayPlayerChipCount);
     
