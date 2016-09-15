@@ -8,9 +8,18 @@
 
 #include <iostream>
 #include <array>
+#include <boost/random/mersenne_twister.hpp>
+#include <boost/random/uniform_int.hpp>
+#include <boost/random/variate_generator.hpp>
 
+
+boost::mt19937 gen;
 
 using namespace std;
+
+//constexpr int PUSH = -100;
+//const int STAND = 1000;
+//const int HIT   = 2000;
 
 inline void error(const string& s)
 {
@@ -113,73 +122,34 @@ void printDeck(const std::array<Card, 52>& deck)
 std::array<Card, 52> filldeck()
 {
     std::array<Card, 52> deck;
-    for (int i=0,c=0,d=0,h=0,s=0; i < deck.size(); ++i)
+    int card = 0;
+    for (int suit = 0; suit < static_cast<int>(Suits::max_suits); ++suit)
     {
-        if (i < 13)
+        for (int rank = 0; rank < static_cast<int>(Ranks::max_ranks); ++rank)
         {
-            deck[i].suit = (Suits::clubs);
-            deck[i].rank = static_cast<Ranks>(c);
-            ++c;
+            deck[card].suit = static_cast<Suits>(suit);
+            deck[card].rank = static_cast<Ranks>(rank);
+            ++card;
         }
-        else if (i < 26)
-        {
-            
-            deck[i].suit = (Suits::diamonds);
-            deck[i].rank = static_cast<Ranks>(d);
-            ++d;
-        }
-        else if (i < 39)
-        {
-            deck[i].suit = (Suits::hearts);
-            deck[i].rank = static_cast<Ranks>(h);
-            ++h;
-        }
-        else if (i < 52)
-        {
-            deck[i].suit = (Suits::spades);
-            deck[i].rank = static_cast<Ranks>(s);
-            ++s;
-        }
-        else
-            error("Something went wrong");
     }
     return deck;
 }
 
-void swapCard(Card& c1, Card& c2)
+// Don't really want to swap actual card interal values
+void swapCard(Card &a, Card &b)
 {
-    std::cout << "Swapping card values" << std::endl;
-    
-    Card tmp;
-    tmp.rank = c1.rank;
-    tmp.suit = c1.suit;
-    
-    c1.rank = c2.rank;
-    c1.suit = c2.suit;
-    
-    c2.rank = tmp.rank;
-    c2.suit = tmp.suit;
-    
-    std::cout << "Finished swap" << std::endl;
+    Card temp = a;
+    a = b;
+    b = temp;
 }
 
 // random number function
-int random(int min, int max)
+int randomMersenne()
 {
-    // Static bool which exists past the scope of this function.
-    // Holds the state of whether srand has been seeded.
-    static bool random=false;
+    boost::uniform_int<> dist(0, 51);
+    boost::variate_generator<boost::mt19937&, boost::uniform_int<> > die(gen, dist);
     
-    if(random==false)
-    {
-        random=true;
-        // The code in this if control structure is guaranteed to only execute once
-        // - the first time it's called.
-        
-        srand(time(0));
-        // That is, if you don't tamper with 'random'
-    }
-    return (min+(rand()%(max-min+1)));
+    return die();
 }
 
 
@@ -188,7 +158,7 @@ void shuffleDeck(std::array<Card,52>& d)
 {
     for (int i = 0; i < d.size(); ++i)
     {
-        swap (d[i], d[random(0,51)]);
+        swap (d[i], d[randomMersenne()]);
         d[i].shuffeled = true;
     }
 }
@@ -225,13 +195,12 @@ char hitOrStand()
     do
     {
         cin >> choice;
-        if (cin)
-            break;
-        
-        cin.clear();
-        cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
-        
-    } while (true);
+        if (!cin)
+        {
+            cin.clear();
+            cin.ignore(std::numeric_limits<streamsize>::max(), '\n');
+        }
+    } while (choice != 'h' && choice != 's');
     
     return choice;
 }
@@ -278,7 +247,8 @@ gameResult playblackjack(std::array<Card,52> deck)
     bool playersTurn = true;
     while (playersTurn == true)
     {
-        std::cout << "Players Total: " << players_total_so_far << std::endl;
+        printPlayersScore(players_total_so_far);
+        
         char choice = hitOrStand();
         
         // If stand turn over, if hit card++ and add value of that card to total score
@@ -330,10 +300,6 @@ gameResult playblackjack(std::array<Card,52> deck)
         return gameResult::LOSE;
 }
 
-
-// only keeping track of the sum of the values of the cards to keep things simple.
-// not tracking individual cards for now.
-
 // Keeping a pointer to the next in the deck to be dealt out is nice.
 // Whenever we need to deal a card, we get the value of the current card, and then
 // advance the pointer to the next card. This can be done in one operation.
@@ -346,6 +312,8 @@ gameResult playblackjack(std::array<Card,52> deck)
 // should have used, typedef std::array<Card,52> Deck;
 int main()
 {
+    gen.seed(static_cast<unsigned int>(std::time(0)));
+    
     std::array<Card, 52> deck;
     deck = filldeck();
     
@@ -359,3 +327,15 @@ int main()
     
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
