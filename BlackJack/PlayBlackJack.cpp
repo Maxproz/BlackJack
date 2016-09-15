@@ -52,13 +52,15 @@ gameResult playblackjack(std::array<Card,52> deck)
 {
     if (deck.at(0).shuffeled == false)
         shuffleDeck(deck);
+
     
-    Card* cardptr = &deck.at(0);
+    Card* cardptr = &deck[0];
     
     int players_total_so_far = 0;
     int dealers_total_so_far = 0;
     
     // Give the dealer one card
+    dealers_total_so_far += getCardValue(*cardptr++);
     dealers_total_so_far += getCardValue(*cardptr++);
     
     // Give the player two cards.

@@ -11,7 +11,24 @@
 #include <iostream>
 #include "Card.hpp"
 #include <array>
+#include <vector>
 #include "RandomGenerators.hpp"
+
+class Deck
+{
+private:
+    const unsigned short _decksize = 51; // 0-51
+    std::vector<Card> deck;
+private:
+    Deck()
+    {
+        for (int i = 0; i < _decksize; ++i)
+        {
+            Card card;
+            deck.push_back(card);
+        }
+    }
+};
 
 void printDeck(const std::array<Card, 52>& deck);
 std::array<Card, 52> fillDeck();
