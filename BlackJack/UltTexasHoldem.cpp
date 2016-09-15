@@ -37,8 +37,8 @@ void playUltimateTexasHoldem(Player& p)
     
     /*
      
-     need to figure out how I want to subtract players current ante and blind
-     they can't take the money back anymore so it should probably be subtracted here.
+     Need to figure out how I want to subtract players current ante and blind
+     - they can't take the money back anymore so it should probably be subtracted here.
      
      */
     
@@ -50,6 +50,13 @@ void playUltimateTexasHoldem(Player& p)
     
     int playersTotal = 0;
     int dealersTotal = 0;
+    
+    /*
+     
+    // need to figure out how I want to increment the pointer without using printCard 
+     - without it looking sloppy. It's fine for now for test logs, but needs changed eveuntally.
+     
+    */
     
     // Two cards are dealt to the player.
     std::shared_ptr<Card> pFirstCard(cardPtr); // assign smart pointer to hold the first cards data.
@@ -82,15 +89,15 @@ void playUltimateTexasHoldem(Player& p)
     /*
      
     implement player choice betting function here
-    switch statement with case 3: for three times bet case 4: for four times bet, and 1 for check:
-    you will need to pass in blindsAntes so you know much how to 3x and 4x to subtract from players chips.
+    - switch statement with case 3: for three times bet case 4: for four times bet, and 1 for check:
+    - you will need to pass in blindsAntes so you know much how to 3x and 4x to subtract from players chips.
      
     */
     
     /*
      
      // do player.bet(amount);
-     Make sure everything from the last function has been cleaned up.
+     - Make sure everything from the last function has been cleaned up.
      
     */
     
