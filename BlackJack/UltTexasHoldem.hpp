@@ -15,6 +15,9 @@
 
 
 std::pair<int, int> getBlindsAndAntes(Player& p);
+
+// https://wizardofodds.com/games/ultimate-texas-hold-em/
+// Need to figure out how I am going to do the payouts later on.
 void playUltimateTexasHoldem(Player& p);
 
 
